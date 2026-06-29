@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg-base: #0a0a0a;
+    --color-bg-surface: #141414;
+    --color-bg-panel: #1a1a1a;
+    --color-fg-primary: #ffffff;
+    --color-fg-muted: #9ca3af;
+    --color-fg-dim: #6b7280;
+    --color-accent-cyan: #00d4ff;
+    --color-accent-cyan-dim: rgba(0, 212, 255, 0.15);
+    --color-accent-orange: #ff6b00;
+    --color-accent-orange-dim: rgba(255, 107, 0, 0.15);
+    --color-border-subtle: rgba(255, 255, 255, 0.06);
+    --color-border-active: rgba(0, 212, 255, 0.3);
+
+    --font-display: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background-color: var(--color-bg-base);
+    color: var(--color-fg-muted);
+    font-family: var(--font-display);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--color-fg-primary);
+  }
+
+  ::selection {
+    background-color: rgba(0, 212, 255, 0.25);
+    color: var(--color-fg-primary);
+  }
+}
+
+@layer components {
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .label {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent-cyan);
+  }
+
+  .label-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: var(--color-accent-cyan-dim);
+    color: var(--color-accent-cyan);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+  }
+
+  .btn-primary {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
+    background-color: var(--color-accent-cyan);
+    color: #000000;
+    padding: 0.875rem 2rem;
+    border: none;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
+    background-color: transparent;
+    color: var(--color-fg-primary);
+    padding: 0.875rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .section-padding {
+    padding: 7.5rem 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding: 7.5rem 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding: 7.5rem 3rem;
+    }
+  }
+
+  .content-inner {
+    max-width: 75rem;
+    margin: 0 auto;
+  }
+
+  /* Ticker animation */
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .ticker-content {
+    animation: marquee 30s linear infinite;
+  }
+
+  /* Video card hover */
+  .video-card video {
+    transition: transform 0.4s ease;
+  }
+
+  .video-card:hover video {
+    transform: scale(1.03);
+  }
+
+  .video-card {
+    transition: all 0.3s ease;
+  }
+
+  .video-card:hover {
+    border-color: var(--color-border-active);
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.08);
+  }
+
+  /* Form input styles */
+  .form-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.75rem 0;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-fg-primary);
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+
+  .form-input::placeholder {
+    color: var(--color-fg-dim);
+  }
+
+  .form-input:focus {
+    border-bottom-color: var(--color-accent-cyan);
+  }
+}
